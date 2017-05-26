@@ -29,7 +29,7 @@ public class Lrng {
 		Toto t5 = new Toto("t5","koko7");
 		Toto t6 = new Toto("t6","koko6");
 		Toto t7 = new Toto("t7","koko7");
-		Toto t8 = new Toto("t8","koko8");
+		
 		
 		//test1(t, t2);
 		
