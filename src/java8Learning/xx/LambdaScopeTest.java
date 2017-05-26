@@ -5,7 +5,8 @@ import java.util.function.Consumer;
 public class LambdaScopeTest {
 	
 
-	 interface Funec<Integer>{
+	 @SuppressWarnings("hiding")
+	interface Funec<Integer>{
      	Integer roso(Integer a,Integer b);
      };
      
@@ -31,7 +32,7 @@ public class LambdaScopeTest {
             
             Consumer<Integer> myConsumer = (y) -> 
             {
-                System.out.println("x = " + x); // Statement A
+                System.out.println("x = " + x); 
                 System.out.println("y = " + y);
                 System.out.println("this.x = " + this.x);
                 System.out.println("LambdaScopeTest.this.x = " +
