@@ -6,12 +6,12 @@ public class Toto {
 	private String dva;
 
 	public Toto(String jen, String dva) {
-		// TODO Auto-generated constructor stub
+		
 		this.setJen(jen);
 		this.setDva(dva);
 	}
 	public Toto(Toto me) {
-		// TODO Auto-generated constructor stub
+		
 		this.setJen(me.getJen()+"..");
 		this.setDva(me.getDva() +"..");
 	}
