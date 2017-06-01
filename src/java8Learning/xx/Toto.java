@@ -39,4 +39,34 @@ public class Toto {
 		Toto t = new Toto (me.getJen()+".",me.getDva()+".");		
 		return t;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dva == null) ? 0 : dva.hashCode());
+		result = prime * result + ((jen == null) ? 0 : jen.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Toto other = (Toto) obj;
+		if (dva == null) {
+			if (other.dva != null)
+				return false;
+		} else if (!dva.equals(other.dva))
+			return false;
+		if (jen == null) {
+			if (other.jen != null)
+				return false;
+		} else if (!jen.equals(other.jen))
+			return false;
+		return true;
+	}
+	
 }
