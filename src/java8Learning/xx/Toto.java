@@ -2,35 +2,30 @@ package java8Learning.xx;
 
 public class Toto {
 	//Some unimportant changes
-	private String jen;
-	private String dva;
+	private final String jen;
+	private final String dva;
 	//Another comment
 	public Toto(String jen, String dva) {
 		
-		this.setJen(jen);
-		this.setDva(dva);
+		this.jen = jen;
+		this.dva = dva;
 	}
 	public Toto(Toto me) {
 		
-		this.setJen(me.getJen()+"..");
-		this.setDva(me.getDva() +"..");
+		this.jen = me.getJen();
+		this.dva = me.getDva();
 	}
 
 	public String getDva() {
 		return dva;
 	}
 
-	public void setDva(String dva) {
-		this.dva = dva;
-	}
+	
 
 	public String getJen() {
 		return jen;
 	}
 
-	public void setJen(String jen) {
-		this.jen = jen;
-	}
 
 	public String toString(){
 		return super.toString() + "{jen: " + jen + ", dva = " + dva + "}";
