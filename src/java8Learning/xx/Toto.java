@@ -5,6 +5,7 @@ public class Toto {
 	private final String jen;
 	private final String dva;
 	//Another comment
+	//yet another comment
 	public Toto(String jen, String dva) {
 		
 		this.jen = jen;
