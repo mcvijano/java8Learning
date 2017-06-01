@@ -5,6 +5,7 @@ public class Toto {
 	private String jen;
 	private String dva;
 	//Another comment
+	//yet another comment
 	public Toto(String jen, String dva) {
 		
 		this.setJen(jen);
