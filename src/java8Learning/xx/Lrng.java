@@ -16,14 +16,14 @@ public class Lrng {
 		
 		
 		
-		Toto t = new Toto("pepe","koko");
-		Toto t1 = new Toto("t1","koko");
-		Toto t2 = new Toto("t2","koko2");
-		Toto t3 = new Toto("t3","koko9");
-		Toto t4 = new Toto("t4","koko8");
-		Toto t5 = new Toto("t5","koko7");
-		Toto t6 = new Toto("t6","koko6");
-		Toto t7 = new Toto("t7","koko7");
+		ImmutableToto t = new Toto("pepe","koko");
+		ImmutableToto t1 = new TotoData("t1","koko");
+		ImmutableToto t2 = new TotoData("t2","koko2");
+		ImmutableToto t3 = new TotoData("t3","koko9");
+		ImmutableToto t4 = new TotoData("t4","koko8");
+		ImmutableToto t5 = new TotoData("t5","koko7");
+		ImmutableToto t6 = new TotoData("t6","koko6");
+		ImmutableToto t7 = new TotoData("t7","koko7");
 		
 		
 		//test1(t, t2);
@@ -61,27 +61,28 @@ public class Lrng {
 		}
 	}
 
-	private static void test2(Toto t, Toto t2, Toto t3, Toto t4, Toto t5, Toto t6) {
-		List<Toto> un = new ArrayList<Toto>();
-		List<Toto> du = new ArrayList<Toto>();
+	private static void test2(ImmutableToto t, ImmutableToto t2, ImmutableToto t3, ImmutableToto t4, ImmutableToto t5, ImmutableToto t6) {
+		List<ImmutableToto> un = new ArrayList<ImmutableToto>();
+		List<ImmutableToto> du = new ArrayList<ImmutableToto>();
 		un.add(t); un.add(t2); un.add(t3); un.add(t4); un.add(t5);
 		du.add(t);du.add(t2);du.add(t3);du.add(t6);
 		
 		//find removed
-		List<Toto> co = Collections.nCopies(7,t6);
+		List<ImmutableToto> co = new ArrayList<ImmutableToto>();
+		co.addAll(un);
 		System.out.println(co.size());
 		//Collections.addAll(co, t6);
 		//co.addAll(un);
 		System.out.println("CO --------------");
 		co.stream().forEach(e-> System.out.println(e));
 		System.out.println(co.size());
-//		un.get(0).setDva("Beep");
-//		System.out.println("COPY");
-//		Collections.copy(co, un);;
+		((TotoData)un.get(0)).setDva("Beep");
+		System.out.println("COPY");
+		Collections.copy(co, un);;
 //		un.get(0).setDva("Beep1111");
-//		un.stream().forEach(e-> System.out.println(e));
-//		System.out.println("CO --------------");
-//		co.stream().forEach(e-> System.out.println(e));
+		un.stream().forEach(e-> System.out.println(e));
+		System.out.println("CO --------------");
+		co.stream().forEach(e-> System.out.println(e));
 //		System.out.println("un -----------vvv---");
 //		co.get(0).setDva("Beep222");
 //		un.stream().forEach(e-> System.out.println(e));
@@ -97,7 +98,7 @@ public class Lrng {
 //		System.out.println("Added--------------");
 //				du.stream().forEach(e-> System.out.println(e));
 //				System.out.println("un --------------");
-//				List rem = new ArrayList<Toto>(du);
+//				List rem = new ArrayList<ImmutableToto>(du);
 //				rem.stream().forEach(e-> System.out.println(e));
 //				System.out.println("remcopy --------------");
 //				rem.removeAll(un);
@@ -107,7 +108,7 @@ public class Lrng {
 //				System.out.println("Added ???--------------");		
 //				un.stream().forEach(e-> System.out.println(e));
 //				System.out.println("un --------------");
-//				rem = new ArrayList<Toto>(un);
+//				rem = new ArrayList<ImmutableToto>(un);
 //				rem.stream().forEach(e-> System.out.println(e));
 //				System.out.println("remcopy --------------");
 //				rem.retainAll(du);
@@ -116,9 +117,9 @@ public class Lrng {
 //				un.stream().forEach(e-> System.out.println(e));
 	}
 
-	private static void test1(Toto t, Toto t2) {
-		List<Toto> un = new ArrayList<Toto>();
-		List<Toto> du = new ArrayList<Toto>();
+	private static void test1(ImmutableToto t, ImmutableToto t2) {
+		List<ImmutableToto> un = new ArrayList<ImmutableToto>();
+		List<ImmutableToto> du = new ArrayList<ImmutableToto>();
 		un.add(t); un.add(t2);
 		du= un.stream().collect(Collectors.toList());
 //		un.get(0).setDva("Beep");
@@ -128,8 +129,8 @@ public class Lrng {
 		un.stream().forEach(e-> System.out.println(e));
 		du.stream().forEach(e-> System.out.println(e));
 		
-		du = un.stream().peek(e-> System.out.println(e)).map(e-> new Toto(e)).collect(Collectors.toList());
-		//du.stream().peek(e-> System.out.println(e)).forEach(e-> new Toto(e.getJen(),e.getDva()+"ttx"));
+		du = un.stream().peek(e-> System.out.println(e)).map(e-> new TotoData(e)).collect(Collectors.toList());
+		//du.stream().peek(e-> System.out.println(e)).forEach(e-> new ImmutableToto(e.getJen(),e.getDva()+"ttx"));
 //		un.get(0).setDva("Beep");
 		System.out.println("du --------------");
 		du.stream().forEach(e-> System.out.println(e));

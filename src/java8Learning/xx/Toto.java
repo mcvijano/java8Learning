@@ -1,9 +1,9 @@
 package java8Learning.xx;
 
-public class Toto {
-	//Some unimportant changes
+public final class Toto implements ImmutableToto {
 	private final String jen;
 	private final String dva;
+
 	//Another comment
 	//yet another comment
 	public Toto(String jen, String dva) {
@@ -11,30 +11,42 @@ public class Toto {
 		this.jen = jen;
 		this.dva = dva;
 	}
-	public Toto(Toto me) {
+	public Toto(ImmutableToto me) {
 		
 		this.jen = me.getJen();
 		this.dva = me.getDva();
 	}
 
+	/* (non-Javadoc)
+	 * @see java8Learning.xx.ImmutableToto#getDva()
+	 */
+	@Override
 	public String getDva() {
 		return dva;
 	}
 
 	
 
+	/* (non-Javadoc)
+	 * @see java8Learning.xx.ImmutableToto#getJen()
+	 */
+	@Override
 	public String getJen() {
 		return jen;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see java8Learning.xx.ImmutableToto#toString()
+	 */
+	@Override
 	public String toString(){
 		return super.toString() + "{jen: " + jen + ", dva = " + dva + "}";
 	}
-	public Toto deepCopy(Toto me){
-		Toto t = new Toto (me.getJen()+".",me.getDva()+".");		
-		return t;
-	}
+	
+	/* (non-Javadoc)
+	 * @see java8Learning.xx.ImmutableToto#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
